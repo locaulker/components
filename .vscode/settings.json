@@ -1,0 +1,10 @@
+{
+  "html.format.indentInnerHtml": true,
+  "html.format.endWithNewline": true,
+  "editor.formatOnSave": true,
+  "html.format.enable": false,
+  "prettier.ignorePath": "",
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": true
+}
