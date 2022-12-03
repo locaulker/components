@@ -4,21 +4,32 @@ import { GoChevronDown, GoChevronLeft } from "react-icons/go"
 function Accordion({ items }) {
   const [expandedIndex, setExpandedIndex] = useState(-1)
 
+  /**
+   * 1. Note: Event handler is NOT in the map function
+   * 2. Toggling open and close accordion with if statement
+   */
   const handleClick = nextIndex => {
-    setExpandedIndex(nextIndex)
+    if (expandedIndex === nextIndex) {
+      setExpandedIndex(-1)
+    } else {
+      setExpandedIndex(nextIndex)
+    }
   }
 
+  // The map function
   const renderedItems = items.map((item, index) => {
     const isExpanded = index === expandedIndex
 
     const icon = (
-      <span>{isExpanded ? <GoChevronDown /> : <GoChevronLeft />}</span>
+      <span className="text-2xl text-green-500">
+        {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+      </span>
     )
 
     return (
       <div key={item.id}>
         <div
-          className="flex p-3 bg-gray-50 border-b cursor-pointer"
+          className="flex justify-between p-3 bg-gray-50 border-b cursor-pointer"
           onClick={() => handleClick(index)}
         >
           {item.label}
