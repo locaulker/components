@@ -9,11 +9,13 @@ function Accordion({ items }) {
    * 2. Toggling open and close accordion with if statement
    */
   const handleClick = nextIndex => {
-    if (expandedIndex === nextIndex) {
-      setExpandedIndex(-1)
-    } else {
-      setExpandedIndex(nextIndex)
-    }
+    setExpandedIndex(currentExpandedIndex => {
+      if (currentExpandedIndex === nextIndex) {
+        return -1
+      } else {
+        return nextIndex
+      }
+    })
   }
 
   // The map function
