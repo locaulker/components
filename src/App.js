@@ -5,7 +5,7 @@ function App() {
   // Note: Default selection can be an Object or null
   const [selection, setSelection] = useState(null)
 
-  const handleSelection = option => {
+  const handleSelect = option => {
     setSelection(option)
   }
 
@@ -16,11 +16,7 @@ function App() {
   ]
 
   return (
-    <Dropdown
-      options={options}
-      selection={selection}
-      onSelect={handleSelection}
-    />
+    <Dropdown options={options} value={selection} onChange={handleSelect} />
   )
 }
 
