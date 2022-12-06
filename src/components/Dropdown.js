@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { GoChevronDown } from "react-icons/go"
-import { GoChevronLeft } from "react-icons/go"
+// import { GoChevronLeft } from "react-icons/go"
 
 function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false)
