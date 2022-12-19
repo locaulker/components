@@ -17,6 +17,7 @@ function Table({ data, config, keyFn }) {
         </td>
       )
     })
+
     return (
       <tr className="border-b" key={keyFn(rowData)}>
         {renderedCells}
