@@ -3,10 +3,21 @@ import Button from "../components/Button"
 import Panel from "../components/Panel"
 
 const reducer = (state, action) => {
-  return {
-    ...state,
-    count: state.count + 1
+  if (action.type === "increment") {
+    return {
+      ...state,
+      count: state.count + 1,
+    }
   }
+
+  if (action.type === "change-value-to-add") {
+    return {
+      ...state,
+      valueToAdd: action.payload,
+    }
+  }
+
+  return state
 }
 
 function CounterPage({ initialCount }) {
@@ -14,12 +25,14 @@ function CounterPage({ initialCount }) {
   // const [valueToAdd, setValueToAdd] = useState(0)
   const [state, dispatch] = useReducer(reducer, {
     count: initialCount,
-    valueToAdd: 0
+    valueToAdd: 0,
   })
   console.log(state)
 
   const increment = () => {
-    dispatch()
+    dispatch({
+      type: "increment",
+    })
   }
   const decrement = () => {
     // setCount(count - 1)
@@ -28,7 +41,10 @@ function CounterPage({ initialCount }) {
   const handleChange = event => {
     const value = parseInt(event.target.value) || 0
 
-    // setValueToAdd(value)
+    dispatch({
+      type: "change-value-to-add",
+      payload: value,
+    })
   }
 
   const handleSubmit = event => {
