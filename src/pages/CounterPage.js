@@ -12,23 +12,23 @@ const reducer = (state, action) => {
     case INCREMENT_COUNT:
       return {
         ...state,
-        count: state.count + 1,
+        count: state.count + 1
       }
     case DECREMENT_COUNT:
       return {
         ...state,
-        count: state.count - 1,
+        count: state.count - 1
       }
     case SET_VALUE_TO_ADD:
       return {
         ...state,
-        valueToAdd: action.payload,
+        valueToAdd: action.payload
       }
     case ADD_VALUE_TO_COUNT:
       return {
         ...state,
         count: state.count + state.valueToAdd,
-        valueToAdd: 0,
+        valueToAdd: 0
       }
     default:
       // throw new Error(`Invalid action: ${action.type}`)
@@ -41,19 +41,19 @@ function CounterPage({ initialCount }) {
   // const [valueToAdd, setValueToAdd] = useState(0)
   const [state, dispatch] = useReducer(reducer, {
     count: initialCount,
-    valueToAdd: 0,
+    valueToAdd: 0
   })
   console.log(state)
 
   const increment = () => {
     dispatch({
-      type: INCREMENT_COUNT,
+      type: INCREMENT_COUNT
     })
   }
   const decrement = () => {
     dispatch({
       type: DECREMENT_COUNT,
-      valueToAdd: 0,
+      valueToAdd: 0
     })
   }
 
@@ -62,7 +62,7 @@ function CounterPage({ initialCount }) {
 
     dispatch({
       type: SET_VALUE_TO_ADD,
-      payload: value,
+      payload: value
     })
   }
 
@@ -70,7 +70,7 @@ function CounterPage({ initialCount }) {
     event.preventDefault()
 
     dispatch({
-      type: ADD_VALUE_TO_COUNT,
+      type: ADD_VALUE_TO_COUNT
     })
   }
 
